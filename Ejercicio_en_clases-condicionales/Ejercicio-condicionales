@@ -1,0 +1,49 @@
+# Programa - Instituto de Inglés.
+
+fecha = input("Ingrese la fecha en formato: dia, DD/MM: ")
+
+
+dia_semana, fecha_num = fecha.split(",")
+dia_semana = dia_semana.strip().lower()   
+dia, mes = fecha_num.strip().split("/")
+dia = int(dia)
+mes = int(mes)
+
+
+if dia < 1 or dia > 31 or mes < 1 or mes > 12:
+    print("Error")
+else:
+
+    if dia_semana == "lunes" or dia_semana == "martes" or dia_semana == "miercoles" or dia_semana == "jueves" or dia_semana == "viernes":
+
+        if dia_semana == "lunes" or dia_semana == "martes" or dia_semana == "miercoles":
+            examenes = input("¿Hubo exámenes? (s/n): ").lower()
+            if examenes == "s":
+                aprobados = int(input("¿Cuántos aprobaron?: "))
+                desaprobados = int(input("¿Cuántos desaprobaron?: "))
+                total = aprobados + desaprobados
+                if total > 0:
+                    porcentaje = (aprobados * 100) / total
+                    print(f"El porcentaje de aprobados es: {porcentaje:.2f}%")
+                else:
+                    print("No se registraron alumnos.")
+
+        elif dia_semana == "jueves":
+            asistencia = float(input("Ingrese el % de asistencia: "))
+            if asistencia > 50:
+                print("Asistió la mayoría")
+            else:
+                print("No asistió la mayoría")
+
+        elif dia_semana == "viernes":
+            if dia == 1 and (mes == 1 or mes == 7):
+                print("Comienzo de nuevo curso")
+                alumnos = int(input("¿Cuántos alumnos hay en el nuevo ciclo?: "))
+                arancel = float(input("¿Cuánto paga cada alumno en $?: "))
+                ingreso_total = alumnos * arancel
+                print(f"Ingreso total del ciclo: ${ingreso_total:.2f}")
+
+    else:
+        print("Error")
+
+

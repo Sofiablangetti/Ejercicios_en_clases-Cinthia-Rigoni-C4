@@ -1,0 +1,6 @@
+precio = float(input("Ingrese un valor decimal de un articulo ficticio: "))
+print("su valor del articulo fictisio es:",precio)
+descuento = float(input("Ingrese un valor decimal del descuento aplicado al articulo "))
+print("su valor del articulo fictisio es:",descuento)
+total = precio * (1 - descuento)
+print("el total es",total)
